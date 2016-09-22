@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<!-- Navbar -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">{{ title }}</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a routerLink="/wiki-search" routerLinkActive="active">Wikipedia Search</a></li>
+            <li><a routerLink="/hello" routerLinkActive="active">Hello</a></li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
