@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
 
 import { WikipediaSearchService } from './wikipedia-search.service';
 
@@ -14,14 +13,10 @@ export class WikipediaSearchComponent implements OnInit {
 	term$ = new Subject<string>();
 
   constructor(private _service: WikipediaSearchService) {
-		this.term$.subscribe(term => this.search(term));
+    this._service.search(this.term$)
+      .subscribe(results => this.items = results);
 	}
 
   ngOnInit() {
   }
-
-  public search(term: string) {
-    		this._service.search(term)
-			    .subscribe(results => this.items = results);
-	}
 }
